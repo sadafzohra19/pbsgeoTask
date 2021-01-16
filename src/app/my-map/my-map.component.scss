@@ -1,0 +1,47 @@
+.map-container {
+    width: inherit;
+    height: 100vh;
+    z-index: 1;
+    position: absolute;
+    overflow: hidden;
+  }
+
+  div#cover {
+    position: relative;
+    top: 80px;
+    right: 0px;
+    z-index: 2;
+    float: right;
+    // min-height: 150px;
+    max-width:  400px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    padding: 20px !important;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#show_hide_btn {
+    z-index: 99999;
+    top: 30%;
+    position: absolute;
+    right: 100%;
+    background-color: #0c6055;
+    border-radius: 4px 0 0 4px;
+    padding: 3px;
+}
+
+button{
+    margin-top: 2%;
+    margin-right: 2%;
+    width: 180px;
+}
+
+.mat-form-field-infix {
+    // background: red;
+    // ....
+}

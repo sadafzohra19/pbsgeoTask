@@ -1,0 +1,54 @@
+<div #cover id="cover">
+    
+    <div class="row">
+        <mat-form-field>
+            <mat-label>Graveyards</mat-label>
+            <mat-select (selectionChange)="changeGraveyard($event)">
+                <mat-option *ngFor="let graveYard of allGraveYards" [value]="graveYard.friedhofId">
+                    {{graveYard.friedhof}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+    <!-- <div id="show_hide_btn" (click)="showHideRightPanel()">
+        <svg #arrowbtn id="arrow-btn" class="bi bi-chevron-right shadow-sm " width="32" height="32" viewBox="0 0 20 20"
+            fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
+                clip-rule="evenodd" />
+        </svg>
+    </div> -->
+
+    <p><small>Select grave or grave plots to view info</small></p>
+    <ng-template [ngIf]="totalAvailableGraves>0">
+        <p><strong>Available graves: </strong> {{totalAvailableGraves}}</p>
+        <mat-slide-toggle (change)="expiredGraves($event)">Expired Graves</mat-slide-toggle>
+    </ng-template>
+
+    <ng-template [ngIf]="totalAvailableGravePlots>0">
+        <p><strong>Available grave plots: </strong>{{totalAvailableGravePlots}}</p>
+        <mat-slide-toggle (change)="deceasedPersons($event)">Deceased Person</mat-slide-toggle>
+    </ng-template>
+
+
+    <br>
+    <button mat-raised-button color="accent" (click)="getAllAvailableGraves()">
+        <span *ngIf="graveDownloadInProgress"  class="fa fa-spinner fa-spin" role="status" aria-hidden="true"></span>
+        Available Graves
+    </button>
+    <button mat-raised-button color="accent" (click)="getAllAvailableGravePlots()">
+        <span *ngIf="gravePlotDownloadInProgress"  class="fa fa-spinner fa-spin" role="status" aria-hidden="true"></span>
+        Available GravePlots
+    </button>
+
+
+    <button mat-raised-button color="accent" (click)="resetMap()">Reset Map</button>
+
+
+
+</div>
+
+<div class="map-container" id="map"></div>
+
+
