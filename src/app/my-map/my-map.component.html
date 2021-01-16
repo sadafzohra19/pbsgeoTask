@@ -1,14 +1,20 @@
-<div #cover id="cover">
-    
+<div #cover id="cover" class="container" >
+    <!-- <div class="row">
+        <div class="col-6 text-center">asdsad</div>
+        <div class="col-6 text-center">asdasd</div>
+    </div> -->
     <div class="row">
-        <mat-form-field>
-            <mat-label>Graveyards</mat-label>
-            <mat-select (selectionChange)="changeGraveyard($event)">
-                <mat-option *ngFor="let graveYard of allGraveYards" [value]="graveYard.friedhofId">
-                    {{graveYard.friedhof}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+        <div class="col-12 text-center">
+            <mat-form-field>
+                <mat-label>Graveyards</mat-label>
+                <mat-select (selectionChange)="changeGraveyard($event)">
+                    <mat-option *ngFor="let graveYard of allGraveYards" [value]="graveYard.friedhofId">
+                        {{graveYard.friedhof}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+       
 
     </div>
     <!-- <div id="show_hide_btn" (click)="showHideRightPanel()">
@@ -19,31 +25,70 @@
                 clip-rule="evenodd" />
         </svg>
     </div> -->
+    <div class="row">
+        <div class="text-danger">
+            <small>{{errorMessage}}</small>
+        </div>
+        
+    </div>
+    <!-- <p><small>Select grave or grave plots to view info</small></p> -->
 
-    <p><small>Select grave or grave plots to view info</small></p>
-    <ng-template [ngIf]="totalAvailableGraves>0">
-        <p><strong>Available graves: </strong> {{totalAvailableGraves}}</p>
-        <mat-slide-toggle (change)="expiredGraves($event)">Expired Graves</mat-slide-toggle>
-    </ng-template>
+    <div class="row" id="collapsible">
+        <div class="col-lg-12 col-sm-12 text-center">
+            <div id="availableGraves" class="collapse" >
+                <p><strong>Available graves: </strong> {{totalAvailableGraves}}</p>
+                <mat-slide-toggle (change)="expiredGraves($event)">Expired Graves</mat-slide-toggle>
+            </div>
+            <!-- <ng-template [ngIf]="totalAvailableGraves>0">
+                <p><strong>Available graves: </strong> {{totalAvailableGraves}}</p>
+                <mat-slide-toggle (change)="expiredGraves($event)">Expired Graves</mat-slide-toggle>
+            </ng-template> -->
+        </div>
+        <div class="col-lg-12 col-sm-12 text-center">
+            <div id="availableGravePlots" class="collapse" >
+                <p><strong>Available grave plots: </strong>{{totalAvailableGravePlots}}</p>
+                <mat-slide-toggle (change)="deceasedPersons($event)">Deceased Person</mat-slide-toggle>
+            </div>
+            <!-- <ng-template [ngIf]="totalAvailableGravePlots>0">
+                <p><strong>Available grave plots: </strong>{{totalAvailableGravePlots}}</p>
+                <mat-slide-toggle (change)="deceasedPersons($event)">Deceased Person</mat-slide-toggle>
+            </ng-template> -->
+        </div>
+    </div>
+    <!-- <div #demo id="demo" class="collapse">
+        Lorem ipsum dolor text....
+    </div> -->
 
-    <ng-template [ngIf]="totalAvailableGravePlots>0">
-        <p><strong>Available grave plots: </strong>{{totalAvailableGravePlots}}</p>
-        <mat-slide-toggle (change)="deceasedPersons($event)">Deceased Person</mat-slide-toggle>
-    </ng-template>
 
 
-    <br>
-    <button mat-raised-button color="accent" (click)="getAllAvailableGraves()">
-        <span *ngIf="graveDownloadInProgress"  class="fa fa-spinner fa-spin" role="status" aria-hidden="true"></span>
-        Available Graves
-    </button>
-    <button mat-raised-button color="accent" (click)="getAllAvailableGravePlots()">
-        <span *ngIf="gravePlotDownloadInProgress"  class="fa fa-spinner fa-spin" role="status" aria-hidden="true"></span>
-        Available GravePlots
-    </button>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+            <button class="btn btn-success" (click)="getAllAvailableGraves()">
+                <span *ngIf="graveDownloadInProgress"  class="fa fa-spinner fa-spin" role="status" aria-hidden="true"></span>
+                Available Graves
+            </button>
+        </div>
+        <div class="ol-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+            <button class="btn btn-success" (click)="getAllAvailableGravePlots()">
+                <span *ngIf="gravePlotDownloadInProgress"  class="fa fa-spinner fa-spin" role="status" aria-hidden="true"></span>
+                Available GravePlots
+            </button>
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="col-12 text-center">
+            <button class="btn btn-danger" (click)="resetMap()"><i class="fa fa-refresh" aria-hidden="true"></i>
+                Reset Map</button>
+
+        </div>
+       
+
+    </div>
 
 
-    <button mat-raised-button color="accent" (click)="resetMap()">Reset Map</button>
+
 
 
 

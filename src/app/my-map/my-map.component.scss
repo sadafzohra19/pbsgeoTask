@@ -12,36 +12,27 @@
     right: 0px;
     z-index: 2;
     float: right;
-    // min-height: 150px;
+    padding: 20px;
     max-width:  400px;
-    transition: 0.5s;
-    -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    padding: 20px !important;
+    min-height: 220px;
     background-color: white;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,.5), 0 10px 50px 5px rgba(0,0,0,.25), inset 1px 1px 0 rgba(255,255,255,.3);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
-#show_hide_btn {
-    z-index: 99999;
-    top: 30%;
-    position: absolute;
-    right: 100%;
-    background-color: #0c6055;
-    border-radius: 4px 0 0 4px;
-    padding: 3px;
-}
 
-button{
+
+.btn-success{
     margin-top: 2%;
-    margin-right: 2%;
-    width: 180px;
+    // margin-right: 2%;
+    width: 170px;
+}
+.btn-danger {
+    margin-top: 5%;
+    // margin-right: 2%;
 }
 
-.mat-form-field-infix {
-    // background: red;
-    // ....
+#collapsible {
+    margin-bottom: 2%;
 }
